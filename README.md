@@ -42,7 +42,7 @@ shareable-config/
 ├── hooks/
 │   └── notify-error.sh               # Error notification (customize terminal app)
 ├── skills/
-│   └── expert-panel-debate/
+│   └── experts-debate/
 │       └── SKILL.md                   # Agent Team multi-expert deliberation skill
 └── templates/
     ├── qa-team.md                     # 3-agent parallel QA review
@@ -99,7 +99,7 @@ No framework-specific customization needed.
 
 # Skills — auto-triggered or invoked manually
 "Assemble an expert panel to debate: monorepo vs polyrepo"
-"Use expert-panel-debate to analyze our database migration strategy"
+"Use experts-debate to analyze our database migration strategy"
 
 # Templates — reference in conversation
 "Use the qa-team template to review my changes"

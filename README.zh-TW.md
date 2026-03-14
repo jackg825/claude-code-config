@@ -43,7 +43,7 @@ shareable-config/
 ├── hooks/
 │   └── notify-error.sh               # 錯誤通知（需客製化終端機 app）
 ├── skills/
-│   └── expert-panel-debate/
+│   └── experts-debate/
 │       └── SKILL.md                   # Agent Team 多專家論證思辨 skill
 └── templates/
     ├── qa-team.md                     # 3-agent 並行 QA 審查
@@ -99,7 +99,7 @@ chmod +x ~/.claude/hooks/notify-error.sh
 
 # Skills — 自動觸發或手動呼叫
 "組建專家團隊辯論：monorepo vs polyrepo"
-"用 expert-panel-debate 分析資料庫遷移策略"
+"用 experts-debate 分析資料庫遷移策略"
 
 # Templates — 在對話中引用
 "用 qa-team 模板審查我的變更"

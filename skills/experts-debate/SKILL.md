@@ -1,5 +1,5 @@
 ---
-name: expert-panel-debate
+name: experts-debate
 description: Use when the user needs multi-perspective analysis, wants to evaluate trade-offs between competing approaches, or asks for expert team deliberation on a decision — especially for technical architecture, solution design, or strategy choices
 ---
 
