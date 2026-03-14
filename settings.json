@@ -1,0 +1,49 @@
+{
+  "_comment": "Merge this into your ~/.claude/settings.json. Do not overwrite blindly.",
+
+  "hooks": {
+    "_comment_hooks": "Notification + Stop require terminal-notifier: brew install terminal-notifier",
+
+    "Notification": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "terminal-notifier -title Claude -message 'Needs your input' -sound Glass -activate com.mitchellh.ghostty -ignoreDnD"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "terminal-notifier -title Claude -message 'Ready for input' -sound Pop -activate com.mitchellh.ghostty"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/notify-error.sh"
+          }
+        ]
+      }
+    ]
+  },
+
+  "_comment_plugins": "Recommended combination — pick ONE from each category to avoid agent conflicts",
+  "_plugin_categories": {
+    "methodology": "superpowers (dev workflow: plan → TDD → review)",
+    "pr_review_github": "code-review (auto PR review → GitHub comments)",
+    "deep_analysis": "pr-review-toolkit (6 specialized agents, on-demand)",
+    "avoid": "Do NOT enable multiple plugins that each define a code-reviewer agent"
+  }
+}
