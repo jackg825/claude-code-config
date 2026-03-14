@@ -1,6 +1,23 @@
 # Claude Code Starter Config
 
+**English** | [繁體中文](README.zh-TW.md)
+
 A minimal, effective Claude Code configuration distilled from months of iteration.
+
+## TL;DR
+
+```bash
+cp -r ~/.claude ~/.claude-backup-$(date +%Y%m%d)
+cp CLAUDE.md ~/.claude/CLAUDE.md
+cp -r commands/ ~/.claude/commands/
+cp -r hooks/ ~/.claude/hooks/
+cp -r skills/ ~/.claude/skills/
+cp -r templates/ ~/.claude/templates/
+chmod +x ~/.claude/hooks/notify-error.sh
+# Merge settings.json manually, customize CLAUDE.md CUSTOMIZE sections
+```
+
+**What you get**: 5 slash commands + 1 Agent Team skill + 3 agent team templates + error notification hook.
 
 ## Philosophy
 
@@ -24,9 +41,12 @@ shareable-config/
 │   └── compact.md                     # /compact — strategic context compaction
 ├── hooks/
 │   └── notify-error.sh               # Error notification (customize terminal app)
+├── skills/
+│   └── expert-panel-debate/
+│       └── SKILL.md                   # Agent Team multi-expert deliberation skill
 └── templates/
     ├── qa-team.md                     # 3-agent parallel QA review
-    ├── architecture-debate.md         # 4-agent architecture debate panel
+    ├── architecture-debate.md         # 4-agent architecture debate panel (simple version)
     └── emergency-bugfix.md            # 3-agent emergency bug fix
 ```
 
@@ -40,6 +60,7 @@ cp -r ~/.claude ~/.claude-backup-$(date +%Y%m%d)
 cp CLAUDE.md ~/.claude/CLAUDE.md
 cp -r commands/ ~/.claude/commands/
 cp -r hooks/ ~/.claude/hooks/
+cp -r skills/ ~/.claude/skills/
 cp -r templates/ ~/.claude/templates/
 chmod +x ~/.claude/hooks/notify-error.sh
 
@@ -75,6 +96,10 @@ No framework-specific customization needed.
 /diagnose          # When hitting a bug
 /release           # When ready to release
 /compact           # When context feels bloated
+
+# Skills — auto-triggered or invoked manually
+"Assemble an expert panel to debate: monorepo vs polyrepo"
+"Use expert-panel-debate to analyze our database migration strategy"
 
 # Templates — reference in conversation
 "Use the qa-team template to review my changes"
