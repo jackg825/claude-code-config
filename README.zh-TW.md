@@ -15,10 +15,12 @@ cp -r hooks/ ~/.claude/hooks/
 cp -r skills/ ~/.claude/skills/
 cp -r templates/ ~/.claude/templates/
 chmod +x ~/.claude/hooks/notify-error.sh
+mkdir -p ~/.codex/skills
+cp -r codex/skills/build-loop ~/.codex/skills/
 # 手動合併 settings.json，修改 CLAUDE.md 中標記 CUSTOMIZE 的區塊
 ```
 
-**你會得到**：5 個 slash commands + 1 個 Agent Team skill + 3 個 agent team 模板 + 錯誤通知 hook。
+**你會得到**：6 個 slash commands + 1 個 Codex skill + 1 個 Agent Team skill + 3 個 agent team 模板 + 錯誤通知 hook。
 
 ## 設計理念
 
@@ -39,7 +41,13 @@ shareable-config/
 │   ├── generate-project-skills.md     # /generate-project-skills — 自動生成專案專屬 skills
 │   ├── diagnose.md                    # /diagnose — 結構化 bug 診斷
 │   ├── release.md                     # /release — 多框架發佈流程
-│   └── compact.md                     # /compact — 策略性 context 壓縮
+│   ├── compact.md                     # /compact — 策略性 context 壓縮
+│   └── build-loop.md                  # /build-loop — generator-evaluator 實作循環
+├── codex/
+│   └── skills/
+│       └── build-loop/
+│           ├── SKILL.md               # Codex build-loop skill
+│           └── agents/openai.yaml     # Codex skill UI metadata
 ├── hooks/
 │   └── notify-error.sh               # 錯誤通知（需客製化終端機 app）
 ├── skills/
@@ -64,6 +72,8 @@ cp -r hooks/ ~/.claude/hooks/
 cp -r skills/ ~/.claude/skills/
 cp -r templates/ ~/.claude/templates/
 chmod +x ~/.claude/hooks/notify-error.sh
+mkdir -p ~/.codex/skills
+cp -r codex/skills/build-loop ~/.codex/skills/
 
 # 3. 手動合併 settings.json（參考檔案內的註解）
 
@@ -96,6 +106,10 @@ chmod +x ~/.claude/hooks/notify-error.sh
 /diagnose          # 遇到 bug 時
 /release           # 準備發佈時
 /compact           # context 膨脹時
+/build-loop        # 處理非平凡實作任務
+
+# Codex skill
+"Use $build-loop to implement this PR-ready change"
 
 # Skills — 自動觸發或手動呼叫
 "組建專家團隊辯論：monorepo vs polyrepo"
