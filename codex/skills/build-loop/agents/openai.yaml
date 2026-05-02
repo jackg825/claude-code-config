@@ -1,0 +1,4 @@
+interface:
+  display_name: "Build Loop"
+  short_description: "Sprint contract implementation loop"
+  default_prompt: "Use $build-loop to implement this change with a sprint contract and independent review."

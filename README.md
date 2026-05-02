@@ -14,10 +14,12 @@ cp -r hooks/ ~/.claude/hooks/
 cp -r skills/ ~/.claude/skills/
 cp -r templates/ ~/.claude/templates/
 chmod +x ~/.claude/hooks/notify-error.sh
+mkdir -p ~/.codex/skills
+cp -r codex/skills/build-loop ~/.codex/skills/
 # Merge settings.json manually, customize CLAUDE.md CUSTOMIZE sections
 ```
 
-**What you get**: 5 slash commands + 1 Agent Team skill + 3 agent team templates + error notification hook.
+**What you get**: 6 slash commands + 1 Codex skill + 1 Agent Team skill + 3 agent team templates + error notification hook.
 
 ## Philosophy
 
@@ -38,7 +40,13 @@ shareable-config/
 │   ├── generate-project-skills.md     # /generate-project-skills — auto-generate project-specific skills
 │   ├── diagnose.md                    # /diagnose — structured bug diagnosis with anti-excuse list
 │   ├── release.md                     # /release — multi-framework release workflow
-│   └── compact.md                     # /compact — strategic context compaction
+│   ├── compact.md                     # /compact — strategic context compaction
+│   └── build-loop.md                  # /build-loop — generator-evaluator implementation loop
+├── codex/
+│   └── skills/
+│       └── build-loop/
+│           ├── SKILL.md               # Codex build-loop skill
+│           └── agents/openai.yaml     # Codex skill UI metadata
 ├── hooks/
 │   └── notify-error.sh               # Error notification (customize terminal app)
 ├── skills/
@@ -63,6 +71,8 @@ cp -r hooks/ ~/.claude/hooks/
 cp -r skills/ ~/.claude/skills/
 cp -r templates/ ~/.claude/templates/
 chmod +x ~/.claude/hooks/notify-error.sh
+mkdir -p ~/.codex/skills
+cp -r codex/skills/build-loop ~/.codex/skills/
 
 # 3. Merge settings.json manually (see comments in file)
 
@@ -96,6 +106,10 @@ No framework-specific customization needed.
 /diagnose          # When hitting a bug
 /release           # When ready to release
 /compact           # When context feels bloated
+/build-loop        # For non-trivial implementation work
+
+# Codex skill
+"Use $build-loop to implement this PR-ready change"
 
 # Skills — auto-triggered or invoked manually
 "Assemble an expert panel to debate: monorepo vs polyrepo"
